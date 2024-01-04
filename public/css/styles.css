@@ -36,5 +36,18 @@ header a {
     text-decoration: none;
 }
 .portrait {
-    width: 150px;
+    width: 250px;
+}
+input {
+    border: 1px solid #cccccc;
+    padding: 8px;
+}
+
+button {
+    cursor: pointer;
+    border: 1px solid #888888;
+    background: #888888;
+    color: White;
+    padding: 8px;
+
 }

@@ -16,7 +16,7 @@ const geocode = (city,callback) => {
                 temperature: body.main.temp,
                 feelsLike: body.main.feels_like
             }
-            callback(undefined, 'Weather Data: '+ `${locationData.weather} with a temperature of ${locationData.temperature} degrees, and it feels like ${locationData.feelsLike} degrees out.`)
+            callback(undefined, 'Weather Data: '+ `${locationData.weather} with a temperature of ${locationData.temperature} K, and it feels like ${locationData.feelsLike} K out.`)
         }
     })
 }
