@@ -17,5 +17,5 @@ steps:
 
 - script: |
     npm install
-    node  src/app.js
+    nodemon  src/app.js
   displayName: 'npm install and build'
