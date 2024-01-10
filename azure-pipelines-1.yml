@@ -33,7 +33,7 @@ steps:
 
 - script: |
     # Start server and ngrok
-    node src/app.js & ngrok http 3000 -host-header="localhost:3000"
+    node src/app.js & ngrok http 3000 -host-header=rewrite
   displayName: 'npm install and build'
 
 - script: |
