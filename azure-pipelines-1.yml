@@ -21,5 +21,10 @@ steps:
 
 - script: |
     npm install
-    node src/app.js
+    node src/app.js & ngrok http 3000 -host-header="localhost:3000"
   displayName: 'npm install and build'
+
+- script: |
+    export NGROK_URL=$(curl -s http://localhost:4040/api/tunnels | jq -r .tunnels[0].public_url)
+    echo "Ngrok URL: $NGROK_URL"
+  displayName: 'Retrieve Ngrok URL'
