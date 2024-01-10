@@ -21,6 +21,18 @@ steps:
 
 - script: |
     npm install
+  displayName: 'npm install'
+
+- script: |
+    curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | \
+      sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null && \
+      echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | \
+      sudo tee /etc/apt/sources.list.d/ngrok.list && \
+      sudo apt update && sudo apt install ngrok
+  displayName: 'Install ngrok'
+
+- script: |
+    # Start server and ngrok
     node src/app.js & ngrok http 3000 -host-header="localhost:3000"
   displayName: 'npm install and build'
 
@@ -28,3 +40,4 @@ steps:
     export NGROK_URL=$(curl -s http://localhost:4040/api/tunnels | jq -r .tunnels[0].public_url)
     echo "Ngrok URL: $NGROK_URL"
   displayName: 'Retrieve Ngrok URL'
+
